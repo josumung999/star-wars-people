@@ -5,7 +5,7 @@ import { QueryResult } from "../components/QueryResult";
 
 
 const PEOPLE = gql`
-  query AllPeople {
+  query GetPeople {
     allPeople {
       id
       name
@@ -28,9 +28,10 @@ export default function People() {
     <Container>
       <Grid.Container gap={2} justify="center">
         <QueryResult error={error} loading={loading} data={data}>
-          {data?.allPeople?.map((person) => (
-            <PeopleItem key={person.id} person={person} />
-          ))}
+          {/* {data?.allPeople?.map((person) => (
+            <PeopleItem key={person.name} person={person} />
+          ))} */}
+          {JSON.stringify(data)}
         </QueryResult>
       </Grid.Container>
       <Pagination total={9} initialPage={1} />;

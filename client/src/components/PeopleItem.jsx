@@ -15,11 +15,11 @@ const PeopleItem = ({ person }) => {
         <Card.Body>
           <Row justify="center" align="center">
             <Text h4 size={20} css={{ m: 0 }}>
-              {person.name}
+              {person.birth_year}
             </Text>
           </Row>
           <Row justify="center" align="center">
-            <Link href={`person/${person.id}`}>
+            <Link href={`person/${1}`}>
               <Button css={{ mt: 10 }}>View</Button>
             </Link>
           </Row>
