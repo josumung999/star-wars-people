@@ -8,18 +8,18 @@ import {
   Link,
 } from "@nextui-org/react";
 
-const PeopleItem = ({ person }) => {
+const PeopleItem = ({ person, index }) => {
   return (
     <Grid xs='4'>
       <Card color='black'>
         <Card.Body>
           <Row justify="center" align="center">
             <Text h4 size={20} css={{ m: 0 }}>
-              {person.birth_year}
+              {person.name}
             </Text>
           </Row>
           <Row justify="center" align="center">
-            <Link href={`person/${1}`}>
+            <Link href={`person/${index + 1}`}>
               <Button css={{ mt: 10 }}>View</Button>
             </Link>
           </Row>

@@ -7,7 +7,6 @@ const typeDefs = gql`
   }
   # schema definition will go here
   type People {
-    id: String
     name: String!
     height: String!
     mass: String!
