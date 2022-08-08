@@ -1,9 +1,16 @@
-import React from 'react'
+import { Grid, Container, Pagination } from "@nextui-org/react";
+import { people } from "../constants/data";
+import PeopleItem from '../components/PeopleItem';
 
-const People = () => {
+export default function Product() {
   return (
-    <div>People</div>
-  )
+    <Container>
+      <Grid.Container gap={2} justify="center">
+        {people.map((person) => (
+          <PeopleItem key={person.id} person={person} />
+        ))}
+      </Grid.Container>
+      <Pagination total={9} initialPage={1} />;
+    </Container>
+  );
 }
-
-export default People
