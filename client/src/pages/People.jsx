@@ -1,6 +1,7 @@
 import { Grid, Container, Pagination } from "@nextui-org/react";
 import { gql, useQuery } from "@apollo/client";
 import PeopleItem from '../components/PeopleItem';
+import { QueryResult } from "../components/QueryResult";
 
 
 const PEOPLE = gql`
@@ -23,15 +24,14 @@ const PEOPLE = gql`
 export default function People() {
   const { loading, error, data } = useQuery(PEOPLE);
 
-  if (loading) return 'Loading ...';
-
-  if (error) return `Error! ${error.message}`;
   return (
     <Container>
       <Grid.Container gap={2} justify="center">
-        {data?.allPeople?.map((person) => (
-          <PeopleItem key={person.id} person={person} />
-        ))}
+        <QueryResult error={error} loading={loading} data={data}>
+          {data?.allPeople?.map((person) => (
+            <PeopleItem key={person.id} person={person} />
+          ))}
+        </QueryResult>
       </Grid.Container>
       <Pagination total={9} initialPage={1} />;
     </Container>
