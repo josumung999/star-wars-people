@@ -15,9 +15,7 @@ function App() {
       <Router>
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
-            <Route path='/' element={<People />}>
-              People
-            </Route>
+            <Route path='/' element={<People />} />
             <Route path='/person/:id' element={<Person />}>
 
             </Route>
