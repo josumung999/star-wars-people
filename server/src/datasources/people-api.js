@@ -11,6 +11,11 @@ class PeopleAPI extends RESTDataSource {
     const data = await this.get(`people`);
     return data.results;
   }
+
+  async findPerson(name) {
+    const data = await this.get(`people/?search=${name}`);
+    return data.results;
+  }
 }
 
 

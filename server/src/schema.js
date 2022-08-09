@@ -3,7 +3,7 @@ const {gql} = require('apollo-server');
 const typeDefs = gql`
   type Query {
     allPeople: [People!]!
-    # findPeople(name: String!): People
+    findPerson(name: String!): People
   }
   # schema definition will go here
   type People {
