@@ -4,6 +4,7 @@ const typeDefs = gql`
   type Query {
     allPeople: [People!]!
     findPerson(name: String!): People
+    person(id: String!): People
   }
   # schema definition will go here
   type People {
