@@ -2,6 +2,8 @@ import React from 'react'
 import { gql, useQuery } from '@apollo/client';
 import PersonDetails from '../components/PersonDetails';
 import { QueryResult } from '../components/QueryResult';
+import { useParams } from 'react-router-dom';
+import { Container } from '@nextui-org/react';
 
 
 export const GET_PERSON = gql`
@@ -20,19 +22,23 @@ export const GET_PERSON = gql`
   }
 `;
 
-const Person = ({personId}) => {
+const Person = () => {
+  const { personId } = useParams();
+
+
   const {loading, error, data} = useQuery(GET_PERSON, { 
     variables: {personId} 
   });
 
-  // const { personId } = useParams();
 
 
   return (
-    <QueryResult error={error} loading={loading} data={data}>
-      {/* this is where our component displaying the data will go */}
-      <PersonDetails person={data} />
-    </QueryResult>
+    <Container>
+      <QueryResult error={error} loading={loading} data={data}>
+        {/* this is where our component displaying the data will go */}
+        <PersonDetails data={data} />
+      </QueryResult>
+    </Container>
   )
 }
 
