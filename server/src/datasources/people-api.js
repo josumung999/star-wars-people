@@ -12,13 +12,13 @@ class PeopleAPI extends RESTDataSource {
     return data.results;
   }
 
-  // TODO: Setup filtering by name
+  // TODO: Setup filtering by name !!WONDERING!!
   async findPersonByName(name) {
     const data = await this.get(`people/?search=${name}`);
     return data.results;
   }
 
-  // TODO: Get informations of a specific user
+  // TODO: Get informations of a specific user !!DONE!!
   async getSpecificPerson(id) {
     const data = await this.get(`people/${id}`);
     return data;
